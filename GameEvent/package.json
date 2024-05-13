@@ -1,0 +1,19 @@
+{
+  "name": "com.ld.game-event",
+  "displayName": "LD Framework - Game Event",
+  "description": "This package support non-gc unity event broadcast system.",
+  "version": "1.0.0",
+  "unity": "2018.2",
+  "license": "MIT",
+  "author": {
+    "name": "shlifedev",
+    "email": "shlifedev@gmail.com"
+  },
+  "dependencies": {
+    "com.cysharp.unitask": "2.5.4"
+  },
+  "keywords": [
+    "event",
+    "game-event"
+  ]
+}
