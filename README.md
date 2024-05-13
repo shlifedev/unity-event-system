@@ -23,7 +23,7 @@ EventBus.Broadcast(new YourMessage() { Value = 100 });
 ```
 
 
-## Inherit Listener
+## Inherit Listener, And Regist/UnRegist.
 ```cs
 public class YourGameObject :
 MonoBehaviour, 
