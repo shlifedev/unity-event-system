@@ -5,7 +5,7 @@ A simple and intuitive event broadcast and listener system with zero GC.
 
 # How to Use?
 
-###Define Your Own Message.
+## Define Your Own Message.
 
 Messages are always declared as struct to avoid GC allocation. 
 
@@ -14,6 +14,14 @@ public struct YourMessage : IMessage{
      public int Value{get; set;}
 }
 ```
+
+
+## Broadcast Message
+
+```cs
+EventBus.Broadcast(new YourMessage() { Value = 100 });
+```
+
 
 ## Inherit Listener
 ```cs
@@ -36,11 +44,7 @@ public void OnEventReceived(YourMessage message){
 }
 ```
 
-## Broadcast Message
-
-```cs
-EventBus.Broadcast(new YourMessage() { Value = 100 });
-```
+ 
 
 
 ## Smart Use Tip.
