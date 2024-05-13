@@ -46,7 +46,7 @@ EventBus.Broadcast(new YourMessage() { Value = 100 });
 ## Smart Use Tip.
 
 Don't bother registering listeners on OnEnable and OnDisable. 
-Create a base monobiology so that OnEnable/OnDisable is always called.
+Create a base mono behaviour. so that OnEnable/OnDisable is always called.
 
 ```cs
 public abstract class BaseMonoBehaviour : MonoBehaviour{
