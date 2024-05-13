@@ -20,7 +20,7 @@ public struct YourMessage : IMessage{
 public class YourGameObject :
 MonoBehaviour, 
 IEventListener<YourMessage>
-
+{
 void OnEnable(){
    EventBus.Register(this);
 }
