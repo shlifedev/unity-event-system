@@ -81,7 +81,7 @@ namespace LD.Framework
         /// <summary>
         /// 리스너객체에 이벤트 전송
         /// </summary> 
-        public virtual UniTask BroadcastAll<TEventArgs>(TEventArgs args) where TEventArgs : struct, TMessage
+        public virtual UniTask BroadcastAll<TEventArgs>(TEventArgs args) where TEventArgs : ` TMessage
         { 
             // 루핑 도중 요소가 삭제되는 경우가 존재
             for (int i=Listeners.Count-1; i>=0; --i)

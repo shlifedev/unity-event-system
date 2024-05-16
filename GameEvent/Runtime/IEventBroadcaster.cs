@@ -7,6 +7,6 @@ namespace LD.Framework
         /// <summary>
         /// 리스너에 이벤트를 전송합니다.
         /// </summary> 
-        UniTask BroadcastAll<TEventArgs>(TEventArgs args) where TEventArgs : struct, TMessage;
+        UniTask BroadcastAll<TEventArgs>(TEventArgs args) where TEventArgs : TMessage;
     }
 }

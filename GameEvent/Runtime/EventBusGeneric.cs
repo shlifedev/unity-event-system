@@ -9,7 +9,7 @@ namespace LD.Framework
     /// <summary>
     /// 각 메세지 별로 이벤트를 관리하기 위한 클래스
     /// </summary> 
-    public static class EventBusGeneric<TMessage> where TMessage : struct, IEventMessage
+    public static class EventBusGeneric<TMessage> where TMessage : IEventMessage
     {
         private static EventPipeline<TMessage> Pipeline = new EventPipeline<TMessage>(); 
         /// <summary>

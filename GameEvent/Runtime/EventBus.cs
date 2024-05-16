@@ -57,7 +57,7 @@ namespace LD.Framework
         /// <summary>
         /// 호출시 자동으로 생명주기로 관리할 인터페이스 메세지를 등록합니다.
         /// </summary> 
-        public static void Broadcast<T>(T message) where T : struct, IEventMessage
+        public static void Broadcast<T>(T message) where T : IEventMessage
         { 
             EventBusGeneric<T>.Broadcast(message); 
         }
