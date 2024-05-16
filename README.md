@@ -3,6 +3,12 @@
 A simple and intuitive event broadcast and listener system with zero GC. 
 
 
+### Requirement
+- UniTask
+
+
+
+
 # How to Use?
 
 ## Define Your Own Message.
