@@ -10,20 +10,20 @@ using UnityEngine.Profiling;
 namespace LD.Framework
 {
     /// <summary>
-    /// 게임 이벤트를 전송, 등록하는 객체 
+    /// Objects that send and register game events 
     /// </summary>
     public class EventPipeline<TMessage> : IEventPipeline<IGameEventListenerMarker, TMessage> 
         where TMessage : IEventMessage
     {
         #region Fields  
         /// <summary>
-        /// 리스너 객체
+        /// Listener Objs
         /// </summary>
         protected virtual List<IGameEventListenerMarker> Listeners { get; } = new List<IGameEventListenerMarker>();
 
 
         /// <summary>
-        /// 리스너 객체와 함께 사용되는 해시맵 
+        /// Listener Hashs
         /// </summary>
         protected virtual HashSet<IGameEventListenerMarker> RegisteredHashMap { get; } = new HashSet<IGameEventListenerMarker>();
         #endregion
@@ -35,7 +35,7 @@ namespace LD.Framework
         }
 
         /// <summary>
-        /// 리스너를 등록한다. 
+        /// Regist Listener
         /// </summary>
         /// <param name="listener"></param>
         public void RegisterListener(IGameEventListenerMarker listener)
@@ -51,7 +51,7 @@ namespace LD.Framework
 
         
         /// <summary>
-        /// 이미 등록 된 객체인가?
+        /// Is Already Registred?
         /// </summary>
         /// <param name="listener"></param>
         /// <returns></returns>
@@ -67,7 +67,7 @@ namespace LD.Framework
         }
         
         /// <summary>
-        /// 리스너를 해제한다.
+        /// Unregister
         /// </summary>
         /// <param name="listener"></param>
         public void UnregisterListener(IGameEventListenerMarker listener)
@@ -79,22 +79,20 @@ namespace LD.Framework
         } 
         
         /// <summary>
-        /// 리스너객체에 이벤트 전송
+        /// Broadcast to all listeners
         /// </summary> 
-        public virtual UniTask BroadcastAll<TEventArgs>(TEventArgs args) where TEventArgs : ` TMessage
-        { 
-            // 루핑 도중 요소가 삭제되는 경우가 존재
+        public virtual UniTask BroadcastAll<TEventArgs>(TEventArgs args) where TEventArgs :  TMessage
+        {  
             for (int i=Listeners.Count-1; i>=0; --i)
             { 
                 var listener = Listeners[i]; 
                 var convert = listener as IEventListener<TEventArgs>;
                 if (convert == null)
                 {
-                    // LBDebug.LogError($"{nameof(IGameEventListenerMarker)} 는 반드시 명시적으로 제네릭 인자와 함께 구현해야 합니다.");
+                     Debug.LogError($"{nameof(IGameEventListenerMarker)}  must be explicitly implemented with a generic argument.");
                 }
                 else 
-                { 
-//                    LBDebug.Log("raised from");
+                {  
                     convert?.OnEventRaised(args);
                 }
             } 

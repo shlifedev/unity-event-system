@@ -5,7 +5,7 @@ namespace LD.Framework
     public static class EventBusReflectionUtility
     {
         /// <summary>
-        /// 특정 타입이 genericType을 상속받는지 확인
+        /// Determine if a specific type inherits from genericType
         /// </summary>
         /// <param name="genericType">ClassName<> 등의 제네릭 타입을 인자로넣음</param>
         /// <param name="checkType">확인 대상 </param>
