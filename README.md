@@ -4,9 +4,7 @@ A simple and intuitive event broadcast and listener system with zero GC.
 
 
 ### Requirement
-- UniTask
- 
- 
+- UniTask (UniTask don't mean much right now, but they will be important in a later example of implementing a Dispatcher for network packets.)
 
 
 # How to Use?
