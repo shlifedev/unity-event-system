@@ -1,6 +1,14 @@
 # unity-event-system
 
 A simple and intuitive event broadcast and listener system with zero GC. 
+GC없이 게임 이벤트를 브로드캐스트하고, 리스너를 등록해서 핸들링할 수 있는 이벤트 시스템입니다.
+
+
+### TodoList
+[Ok] - Zero GC Event Listener, Register, Custom Message
+[Todo] - Class Message Support (선언된 변수 토큰에 직접 메세지를 할당하여 Pooling된 클래스가 잘못된 포인터를 참조하게 되는 이슈를 피하기 위해 로즐린이 필요합니다.)
+[Todo] - Code Generator With Roslyn (로즐린을 사용하면 EventBus.Register의 메세지 등록이 굉장히 빨라집니다. 현재도 빠른 상태입니다.)
+
 
 
 ### Requirement
