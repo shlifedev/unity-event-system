@@ -13,8 +13,8 @@ namespace LD.Framework
     {
         private static EventPipeline<TMessage> Pipeline = new EventPipeline<TMessage>();  
         public static void Broadcast(TMessage message) => Pipeline.BroadcastAll(message); 
-        static void Register(IGameEventListenerMarker listener) => Pipeline.RegisterListener(listener); 
-        static void Unregister(IGameEventListenerMarker listener) => Pipeline.UnregisterListener(listener); 
+        public static void Register(IGameEventListenerMarker listener) => Pipeline.RegisterListener(listener); 
+        public  static void Unregister(IGameEventListenerMarker listener) => Pipeline.UnregisterListener(listener); 
         public static void Clear() => Pipeline.ClearListener();
         
     }

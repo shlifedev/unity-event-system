@@ -47,8 +47,8 @@ namespace LD.Framework
                             var genericEventBusType = eventBusType.MakeGenericType(baseType);
 
                             if (genericEventBusType == null)
-                                throw new Exception($"{target.GetType().Name} EventBus를 찾을 수 없습니다.");
-
+                                throw new Exception($"{target.GetType().Name} {genericArg.Name} EventBus를 찾을 수 없습니다.");
+ 
                             var registerMethodInfo = genericEventBusType.GetMethod("Register",
                                 BindingFlags.Static | BindingFlags.Public);
                             var unRegisterMethodInfo = genericEventBusType.GetMethod("Unregister",
