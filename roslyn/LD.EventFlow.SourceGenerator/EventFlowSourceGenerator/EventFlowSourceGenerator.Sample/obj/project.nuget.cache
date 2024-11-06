@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LoeUUUNYdxA42kKs13pncllG5vH8jaRzROopfA23zojpMv5AXDl8QuWYHrrOIFdISnYkRKnYWWKcXC3a0Ta+jw==",
+  "dgSpecHash": "UWPPVVVs6ZE=",
   "success": true,
-  "projectFilePath": "/Users/shlifedev/Happy/qq/unity-event-system/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator.Sample/EventFlowSourceGenerator.Sample.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator.Sample/EventFlowSourceGenerator.Sample.csproj",
+  "expectedPackageFiles": [
+    "/Users/shlifedev/.nuget/packages/microsoft.netcore.app.ref/8.0.2/microsoft.netcore.app.ref.8.0.2.nupkg.sha512",
+    "/Users/shlifedev/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.2/microsoft.aspnetcore.app.ref.8.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

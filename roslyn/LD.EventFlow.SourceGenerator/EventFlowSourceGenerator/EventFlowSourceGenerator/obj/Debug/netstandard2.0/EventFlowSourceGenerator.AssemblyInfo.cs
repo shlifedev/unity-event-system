@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventFlowSourceGenerator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+846896dcb0bfcf9e06aafcafe5f368a23df4aa90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47b0be151a8aec9427a2c8ae09d8613966d09b14")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventFlowSourceGenerator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventFlowSourceGenerator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9,3 +9,14 @@
 /Users/shlifedev/Happy/qq/unity-event-system/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.sourcelink.json
 /Users/shlifedev/Happy/qq/unity-event-system/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.dll
 /Users/shlifedev/Happy/qq/unity-event-system/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.pdb
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/bin/Debug/netstandard2.0/EventFlowSourceGenerator.deps.json
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/bin/Debug/netstandard2.0/EventFlowSourceGenerator.dll
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/bin/Debug/netstandard2.0/EventFlowSourceGenerator.pdb
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.csproj.AssemblyReference.cache
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.AssemblyInfoInputs.cache
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.AssemblyInfo.cs
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.csproj.CoreCompileInputs.cache
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.sourcelink.json
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.dll
+/Users/shlifedev/event-flow/roslyn/LD.EventFlow.SourceGenerator/EventFlowSourceGenerator/EventFlowSourceGenerator/obj/Debug/netstandard2.0/EventFlowSourceGenerator.pdb
