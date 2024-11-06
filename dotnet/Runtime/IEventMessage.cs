@@ -6,12 +6,5 @@ namespace LD.Framework
     public interface IEventMessage 
     {
         
-    }
-
-    public interface IEventMessage<TSender>
-    {
-        TSender Sender { get; }
-    }
-    
-    
+    } 
 }

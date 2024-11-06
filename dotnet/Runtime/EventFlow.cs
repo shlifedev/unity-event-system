@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection; 
+using System.Reflection;
 using UnityEngine;
 
 namespace LD.Framework
@@ -12,12 +12,14 @@ namespace LD.Framework
         private static Dictionary<System.Type, List<Action<IEventListenerMarker>>> _registerMethodMap = new();
         private static Dictionary<System.Type, List<Action<IEventListenerMarker>>> _unregisterMethodMap = new();
         private static HashSet<System.Type> _ignoredTypes = new();
+
         static Type[] GetInterfaces(object target)
         {
-            if(!_interFacesMap.ContainsKey(target.GetType()))
+            if (!_interFacesMap.ContainsKey(target.GetType()))
                 _interFacesMap.Add(target.GetType(), target.GetType().GetInterfaces());
             return _interFacesMap[target.GetType()];
         }
+
         static bool IsInitialized(object target)
         {
             if (_registerMethodMap.ContainsKey(target.GetType()) &&
@@ -27,8 +29,8 @@ namespace LD.Framework
         }
 
         static void Initialize(object target)
-        { 
-            if(!_interFacesMap.ContainsKey(target.GetType()))
+        {
+            if (!_interFacesMap.ContainsKey(target.GetType()))
                 _interFacesMap.Add(target.GetType(), target.GetType().GetInterfaces());
             var interfaces = GetInterfaces(target);
             for (var index = 0; index < interfaces.Length; index++)
@@ -48,7 +50,7 @@ namespace LD.Framework
 
                             if (genericEventBusType == null)
                                 throw new Exception($"{target.GetType().Name} {genericArg.Name} EventBus를 찾을 수 없습니다.");
- 
+
                             var registerMethodInfo = genericEventBusType.GetMethod("Register",
                                 BindingFlags.Static | BindingFlags.Public);
                             var unRegisterMethodInfo = genericEventBusType.GetMethod("Unregister",
@@ -56,8 +58,9 @@ namespace LD.Framework
 
                             if (registerMethodInfo != null)
                             {
-                                var myDelegate = (Action<IEventListenerMarker>)Delegate.CreateDelegate(typeof(Action<IEventListenerMarker>), registerMethodInfo);
-
+                                var myDelegate =
+                                    (Action<IEventListenerMarker>)Delegate.CreateDelegate(
+                                        typeof(Action<IEventListenerMarker>), registerMethodInfo);
 
 
                                 if (!_registerMethodMap.ContainsKey(target.GetType()))
@@ -72,8 +75,9 @@ namespace LD.Framework
 
                             if (unRegisterMethodInfo != null)
                             {
-                                var myDelegate = (Action<IEventListenerMarker>)Delegate.CreateDelegate(typeof(Action<IEventListenerMarker>), unRegisterMethodInfo);
-
+                                var myDelegate =
+                                    (Action<IEventListenerMarker>)Delegate.CreateDelegate(
+                                        typeof(Action<IEventListenerMarker>), unRegisterMethodInfo);
 
 
                                 if (!_unregisterMethodMap.ContainsKey(target.GetType()))
@@ -90,6 +94,7 @@ namespace LD.Framework
                 }
             }
         }
+
         static void RawCall(bool register, object target)
         {
             if (!_ignoredTypes.Contains(target.GetType()))
@@ -98,46 +103,51 @@ namespace LD.Framework
                 {
                     Initialize(target);
                     // 초기화 이후에도 초기화가 되지않은 객체인경우 (non event listener marker)
-                    if (!IsInitialized(target) && !_ignoredTypes.Contains(target.GetType())) 
-                       _ignoredTypes.Add(target.GetType());
+                    if (!IsInitialized(target) && !_ignoredTypes.Contains(target.GetType()))
+                        _ignoredTypes.Add(target.GetType());
                 }
             }
 
             // 무시할 객체 타입
-            if (_ignoredTypes.Contains(target.GetType())) return;
+            if (_ignoredTypes.Contains(target.GetType()))
+            {
+                return;
+            }
+
             if (register)
+            {
+                for (var index = 0; index < _registerMethodMap[target.GetType()].Count; index++)
                 {
-                    for (var index = 0; index < _registerMethodMap[target.GetType()].Count; index++)
-                    {
-                        var item = _registerMethodMap[target.GetType()][index];
-                        item?.Invoke(target as IEventListenerMarker);
-                    }
+                    var item = _registerMethodMap[target.GetType()][index];
+                    item?.Invoke(target as IEventListenerMarker);
                 }
-                else
+            }
+            else
+            {
+                for (var index = 0; index < _unregisterMethodMap[target.GetType()].Count; index++)
                 {
-                    for (var index = 0; index < _unregisterMethodMap[target.GetType()].Count; index++)
-                    {
-                        var item = _unregisterMethodMap[target.GetType()][index];
-                        item?.Invoke(target as IEventListenerMarker);
-                    }
-                } 
+                    var item = _unregisterMethodMap[target.GetType()][index];
+                    item?.Invoke(target as IEventListenerMarker);
+                }
+            }
         }
-        
+
         /// <summary>
         /// 호출시 자동으로 생명주기로 관리할 인터페이스 메세지를 등록합니다.
         /// </summary> 
         public static void Register(IEventListenerMarker target)
-        { 
+        {
             RawCall(true, target);
         }
-        
+
         /// <summary>
         /// 호출시 자동으로 생명주기로 관리할 인터페이스 메세지를 등록합니다.
         /// </summary> 
         public static void Broadcast<T>(T message) where T : IEventMessage
-        { 
-            EventFlowGeneric<T>.EmitAll(message); 
+        {
+            EventFlowGeneric<T>.EmitAll(message);
         }
+
         /// <summary>
         /// 호출시 자동으로 인터페이스 메세지를 찾아 이벤트버스에서 더이상 관리하지 않게됩니다.
         /// </summary> 
@@ -146,15 +156,15 @@ namespace LD.Framework
             RawCall(false, target);
         }
 
- 
-        
+
         /// <summary>
         /// 호출시 자동으로 생명주기로 관리할 인터페이스 메세지를 등록합니다.
         /// </summary> 
         public static void Register(object target)
-        { 
+        {
             RawCall(true, target);
         }
+
         /// <summary>
         /// 호출시 자동으로 인터페이스 메세지를 찾아 이벤트버스에서 더이상 관리하지 않게됩니다.
         /// </summary> 

@@ -39,10 +39,14 @@ namespace LD.Framework
         public void RegisterListener(IEventListenerMarker listener)
         { 
             if (RegisteredHashMap.Contains(listener) == false)
-            {
+            { 
                 Listeners.Add(listener);
                 RegisteredHashMap.Add(listener);
-            } 
+            }
+            else
+            {
+                Debug.LogError(" Already Registered");
+            }
         }
 
         
@@ -78,23 +82,29 @@ namespace LD.Framework
         /// Emit Message to all listeners
         /// </summary> 
         public virtual UniTask EmitAll<TEventArgs>(TEventArgs args) where TEventArgs :  TMessage
-        {  
+        { 
+            IPooableEventMessage poolAbleArgs = args as IPooableEventMessage;
             for (int i=Listeners.Count-1; i>=0; --i)
             { 
                 var listener = Listeners[i]; 
-                var convert = listener as IEventListener<TEventArgs>;
+                var convert = listener as IEventListener<TEventArgs>; 
                 if (convert == null)
                 {
                     Debug.LogError($"{nameof(IEventListenerMarker)}  must be explicitly implemented with a generic argument.");
+                } 
+                else
+                {
+                    if (!poolAbleArgs!.IsInstantiated)
+                        throw new Exception("풀링 된 메세지를 사용할 수 없습니다.");
+                     convert.OnEvent(args); 
                 }
-                else 
-                {  
-                    return convert.OnEvent(args);
-                }
-            }  
+            }    
+            
+            poolAbleArgs?.Return(); 
             return UniTask.CompletedTask;
         } 
          
+        
         public virtual UniTask BroadcastTo<TEventArgs>(TEventArgs args, IEventListener<TEventArgs> target) where TEventArgs :  TMessage
         { 
                 return target.OnEvent(args);
