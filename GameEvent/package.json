@@ -1,6 +1,6 @@
 {
-  "name": "com.ld.game-event",
-  "displayName": "LD Framework - Game Event",
+  "name": "com.shlifedev.eventflow",
+  "displayName": "EventFlow",
   "description": "This package support non-gc unity event broadcast system.",
   "version": "1.0.0",
   "unity": "2018.2",
