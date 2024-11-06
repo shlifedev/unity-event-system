@@ -14,21 +14,21 @@ A very easy to use zero-gc game event sending/listen system.
 - UniTask  
 
 
-## [Example](https://github.com/shlifedev/unity-event-system/tree/main/GameEvent/Example)
+## [Example](https://github.com/shlifedev/event-flow/tree/main/src/Assets/Example)
 [Movie_001.webm](https://github.com/user-attachments/assets/19ef0dd3-7288-49fa-b3c3-87b2195be071)
 
  
 
 ## How to use
 
-### [Declare Your Game Event](https://github.com/shlifedev/unity-event-system/blob/main/GameEvent/Example/Scripts/Messages/OnEntityDamagedMessage.cs)
+### [Declare Your Game Event](https://github.com/shlifedev/event-flow/tree/main/src/Assets/Example/Scripts/Messages/OnEntityDamagedMessage.cs)
 Just inherit the IEventMessage to the structure.
 
 ```
  public struct YourEvent : IEventMessage{ // your event fields.. }
 ```
 
-### [Inherit IEventListenr<T> And Regist](https://github.com/shlifedev/unity-event-system/blob/main/GameEvent/Example/Scripts/HealthBarUI.cs)
+### [Inherit IEventListenr<T> And Regist](https://github.com/shlifedev/event-flow/tree/main/src/Assets/Example/Scripts/HealthBarUI.cs)
 ```cs
 public class YourClass : MonoBehaviour, IEventListener<YourMessage>{
     void OnEnable(){
