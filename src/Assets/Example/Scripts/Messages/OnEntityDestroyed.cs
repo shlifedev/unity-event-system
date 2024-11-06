@@ -7,4 +7,4 @@ using UnityEngine;
 public struct OnEntityDestroyed : IEventMessage
 {
      public GameEntity Target; 
-}
+} 

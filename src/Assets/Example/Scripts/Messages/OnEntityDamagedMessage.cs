@@ -9,4 +9,4 @@ public struct OnEntityDamagedMessage : IEventMessage
      public GameEntity Target;
      public float PreviousHealth;
      public float CurrentHealth; 
-}
+} 

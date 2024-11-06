@@ -6,17 +6,16 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Performance
-{
+{ 
     public class ImMessage : PoolMessageBase<ImMessage>
-    {
-        public int a = 10; 
+    {   
     }
     
     [Serializable]
     public class ImListener : IEventListener<ImMessage>
     {
         public UniTask OnEvent(ImMessage args)
-        {  
+        {   
             return UniTask.CompletedTask;
         }
     }
@@ -35,7 +34,7 @@ namespace Performance
             }
         }
 
-        private static int i = 0;
+        private int iq = 0;
 
         private void OnGUI()
         {
@@ -49,8 +48,8 @@ namespace Performance
                 UnityEngine.Profiling.Profiler.BeginSample("먀옹");
                 for (int i = 0; i < 10; i++)
                 {
-                    var message = MessagePool<ImMessage>.Get();
-                    message.a++;
+                    this.iq++;
+                    var message = MessagePool<ImMessage>.GetWithParam(iq); 
                     EventFlow.Broadcast(message);
                 }
                 
@@ -61,7 +60,7 @@ namespace Performance
                 //     EventFlow.Broadcast(message2);
                 // }
 
-                UnityEngine.Profiling.Profiler.EndSample();
+                UnityEngine.Profiling.Profiler.EndSample(); 
                 EditorApplication.isPaused = true;
             }
         }
