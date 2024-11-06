@@ -1,4 +1,4 @@
-# unity-event-system
+# EventFlow
 
 A very easy to use zero-gc game event sending/listen system. 
 
@@ -25,26 +25,28 @@ A very easy to use zero-gc game event sending/listen system.
 Just inherit the IEventMessage to the structure.
 
 ```
- public struct YourEvent : IEventMessage{ // your event fields.. }
+ public struct YourEvent : IEventMessage{ 
+   public string Message;
+ }
 ```
 
 ### [Inherit IEventListenr<T> And Regist](https://github.com/shlifedev/event-flow/tree/main/src/Assets/Example/Scripts/HealthBarUI.cs)
 ```cs
 public class YourClass : MonoBehaviour, IEventListener<YourMessage>{
     void OnEnable(){
-         EventBus.Register(this);
+         EventFlow.Register(this);
     }
     void OnDestroy(){
-         EventBus.UnRegister(this);
+         EventFlow.UnRegister(this);
     }
 
-    public void OnEventRaised(YourMessage eventMessageArgs){
-         Debug.Log("Received!");
+    public UniTask OnEvent(YourMessage args){
+         Debug.Log("Received! => " + args.Message);
     }
 }
 ```
 
 ### [Broadcast message](https://github.com/shlifedev/unity-event-system/blob/main/GameEvent/Example/Scripts/GameEntity.cs)
 ```cs
-     EventBus.Broadcast(new YourMessage(){});
+     EventBus.Broadcast(new YourMessage(){Message="hi"});
 ```  
